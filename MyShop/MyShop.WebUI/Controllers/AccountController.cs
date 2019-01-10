@@ -21,7 +21,7 @@ namespace MyShop.WebUI.Controllers
         private ApplicationUserManager _userManager;
         private IRepository<Customer> customerRepository;
 
-        public AccountController(IRepository<Customer> customerRepostory )
+        public AccountController(IRepository<Customer> customerRepostory)
         {
             this.customerRepository = customerRepository;
         }
