@@ -163,7 +163,7 @@ namespace MyShop.WebUI.Controllers
                         State = model.State,
                         Street = model.Street,
                         ZipCode = model.ZipCode,
-                        UserId=user.Id
+                        UserId = user.Id
                     };
 
                     customerRepository.Insert(customer);
