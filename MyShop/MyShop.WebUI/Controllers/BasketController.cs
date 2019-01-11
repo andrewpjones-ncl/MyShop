@@ -48,12 +48,12 @@ namespace MyShop.WebUI.Controllers
             return PartialView(basketSummary);
         }
 
-      //  [Authorize]
+        [Authorize]
         public ActionResult Checkout()
         {
             Customer customer = customers.Collection().FirstOrDefault(c => c.Email == User.Identity.Name);
 
-            if(customer !=null)
+            if (customer != null)
             {
                 Order order = new Order()
                 {
@@ -75,7 +75,7 @@ namespace MyShop.WebUI.Controllers
         }
 
         [HttpPost]
-      //  [Authorize]
+        [Authorize]
         public ActionResult Checkout(Order order)
         {
             var basketItems = basketService.GetBasketItems(this.HttpContext);

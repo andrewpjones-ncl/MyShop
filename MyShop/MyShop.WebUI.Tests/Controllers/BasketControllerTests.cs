@@ -32,7 +32,7 @@ namespace MyShop.WebUI.Tests.Controllers
             controller.ControllerContext = new System.Web.Mvc.ControllerContext(httpContext, new System.Web.Routing.RouteData(), controller);
 
             //Act
-            //basketService.AddToBasket(httpContext, "1");
+            basketService.AddToBasket(httpContext, "1");
             controller.AddToBasket("1");
 
             Basket basket = baskets.Collection().FirstOrDefault();
@@ -54,7 +54,7 @@ namespace MyShop.WebUI.Tests.Controllers
             products.Insert(new Product() { Id = "2", Price = 5.00m });
 
             Basket basket = new Basket();
-            basket.BasketItems.Add(new BasketItem() { ProductId = "1", Quantity=2 });
+            basket.BasketItems.Add(new BasketItem() { ProductId = "1", Quantity = 2 });
             basket.BasketItems.Add(new BasketItem() { ProductId = "2", Quantity = 1 });
             baskets.Insert(basket);
 
@@ -92,7 +92,7 @@ namespace MyShop.WebUI.Tests.Controllers
             IRepository<Order> orders = new MockContext<Order>();
             IOrderService orderService = new OrderService(orders);
 
-            customers.Insert(new Customer() { Id = "1", Email = "Test@Email.com", ZipCode="NNNNNN" });
+            customers.Insert(new Customer() { Id = "1", Email = "Test@Email.com", ZipCode = "NNNNNN" });
 
             IPrincipal FakeUser = new GenericPrincipal(new GenericIdentity("Test@Email.com", "Forms"), null);
 
