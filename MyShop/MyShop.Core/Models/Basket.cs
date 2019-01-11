@@ -8,6 +8,7 @@ namespace MyShop.Core.Models
 {
     public class Basket : BaseEntity
     {
+        // - lazy loading - when loading basket from database, basket items loaded as well
         public virtual ICollection<BasketItem> BasketItems { get; set; }
 
         public Basket()
