@@ -16,15 +16,15 @@ namespace MyShop.WebUI.Controllers
         {
             this.orderService = OrderService;
         }
+
         // GET: OrderManager
         public ActionResult Index()
         {
             List<Order> orders = orderService.GetOrderList();
-
-            return View();
+            return View(orders);
         }
 
-        public ActionResult UpdateOrder(string Id)
+        public ActionResult UpdateOrder (string Id)
         {
             ViewBag.StatusList = new List<string>()
             {
@@ -33,7 +33,6 @@ namespace MyShop.WebUI.Controllers
                 "Order Shipped",
                 "Order Complete"
             };
-
             Order order = orderService.GetOrder(Id);
             return View(order);
         }
